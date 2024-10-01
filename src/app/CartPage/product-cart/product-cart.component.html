@@ -1,18 +1,32 @@
 <div *ngIf="cartItems.length > 0; else emptyCart">
     <h2>Your Cart</h2>
-    <div class="cart-item" *ngFor="let item of cartItems">
-        <img [src]="item.image" alt="{{ item.title }}" class="cart-item-image" />
-        <div class="cart-item-details">
-            <h3>{{ item.title }}</h3>
-            <p>Price: ${{ item.price }}</p>
-            <!-- <button (click)="removeFromCart(item)" class="btn btn-danger">Remove</button> -->
-        </div>
-    </div>
 
-    <div class="cart-total">
-        <!-- <h3>Total: ${{ getTotal() }}</h3> -->
-        <!-- <h3>Total: ${{ getTotal() }}</h3> -->
-    </div>
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col" *ngFor="let item of cartItems">
+                <div class="card mb-4 rounded-3 shadow-sm" style="width: 18rem;">
+                    <img [src]="item.image" class="card-img-top product-image" alt="{{ item.title }}">
+                    <div class="card-body">
+                        <h5 class="product-title">{{ item.title }}</h5>
+                        <div class="product-price">
+                            <p class="price">${{ item.price }}</p>
+                        </div>
+                        <p class="rating">
+                            <img src="https://www.plixlife.com/plixlifefc/assets/rating_star.svg" alt="rating star">
+                            Rating: {{ item.rating }} / 5
+                        </p>
+                        <!-- Uncomment if you want to include a remove button -->
+                        <!-- <button (click)="removeFromCart(item)" class="btn btn-danger">Remove</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Optionally include a cart total section here -->
+    <!-- <div class="cart-total">
+      <h3>Total: ${{ getTotal() }}</h3>
+    </div> -->
 </div>
 
 <ng-template #emptyCart>

@@ -1,0 +1,28 @@
+<div class="checkout-summary">
+    <ul class="list-group mb-3">
+        <!-- Loop through the cart items -->
+        <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of cartItems">
+            <div>
+                <h6 class="my-0">{{ item.title }}</h6>
+                <small class="text-muted">Quantity: {{ item.quantity }}</small>
+            </div>
+            <span class="text-muted">${{ item.price * item.quantity }}</span>
+        </li>
+
+        <!-- Promo code section (optional, remove if not needed) -->
+        <li class="list-group-item d-flex justify-content-between bg-light" *ngIf="promoCode">
+            <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small>{{ promoCode }}</small>
+            </div>
+            <!-- <span class="text-success">-{{ promoDiscount |  }}</span> -->
+        </li>
+
+        <!-- Total calculation -->
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>${{ getTotal() }}</strong>
+        </li>
+    </ul>
+    <button (click)="checkout()" class="btn btn-primary">Checkout</button>
+</div>

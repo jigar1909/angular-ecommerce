@@ -3,8 +3,8 @@
 
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col" *ngFor="let item of cartItems">
-                <div class="card mb-4 rounded-3 shadow-sm" style="width: 18rem;">
+            <div class="col product-cart" >
+                <div *ngFor="let item of cartItems" class="card mb-4 rounded-3 shadow-sm cart-item" >
                     <img [src]="item.image" class="card-img-top product-image" alt="{{ item.title }}">
                     <div class="card-body">
                         <h5 class="product-title">{{ item.title }}</h5>
@@ -15,18 +15,18 @@
                             <img src="https://www.plixlife.com/plixlifefc/assets/rating_star.svg" alt="rating star">
                             Rating: {{ item.rating }} / 5
                         </p>
-                        <!-- Uncomment if you want to include a remove button -->
-                        <!-- <button (click)="removeFromCart(item)" class="btn btn-danger">Remove</button> -->
+                        <div class="quantity-controls">
+                            <button (click)="decreaseQuantity(item)" class="btn btn-secondary btn-sm">-</button>
+                            <span class="quantity mx-2">{{ item.quantity }}</span>
+                            <button (click)="increaseQuantity(item)" class="btn btn-secondary btn-sm">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Optionally include a cart total section here -->
-    <!-- <div class="cart-total">
-      <h3>Total: ${{ getTotal() }}</h3>
-    </div> -->
+
 </div>
 
 <ng-template #emptyCart>

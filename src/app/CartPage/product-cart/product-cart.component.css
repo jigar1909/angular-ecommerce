@@ -1,0 +1,17 @@
+.card-img-top.product-image{
+    height: 210px;
+    width: 100%;
+}
+
+.product-cart{
+    flex-wrap: wrap;
+    gap: 10px !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.cart-item{
+    width: 250px;
+    height: 385px;
+}

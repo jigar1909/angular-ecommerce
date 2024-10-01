@@ -1,0 +1,17 @@
+
+
+<div class="product-detail" *ngIf="product">
+    <img [src]="product?.image" alt="{{ product?.title }}" class="product-image-detail" />
+    <div class="productData">
+
+        <h1 class="product-name">{{ product?.title }}</h1>
+        <div class="product-price">
+            <p class="old-price" *ngIf="product.oldPrice"> ${{ product.oldPrice }} </p> <span>|</span>
+            <p class="price"> ${{ product.price }}</p>
+        </div>
+        <p>Description: {{ product?.description }}</p>
+        <p>Rating: {{ product?.rating }} / 5</p>
+
+        <a (click)="addToCart()" class="btn add-to-cart btn-primary">Add to Cart</a>
+    </div>
+</div>
